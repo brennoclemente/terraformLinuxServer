@@ -12,11 +12,10 @@ resource "aws_instance" "ServerA" {
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.GrupodeSeguranca.id]
   
-  user_data = << EOF 
+  user_data = <<EOF 
              #! / bin / bash 
              echo "Olá, Mundo"> index.html 
-             nohup busybox httpd -f -p 8080 & 
-             EOF
+             nohup busybox httpd -f -p 8080 & EOF
   
     tags = { 
     Name = "2ndTestedeCriacao" 
