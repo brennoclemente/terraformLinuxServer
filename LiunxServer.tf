@@ -7,7 +7,7 @@ resource "aws_instance" "ServerA" {
       user_data = <<-EOF
                   #!/bin/bash
                   echo "Hello, World" > index.html
-                  nohup busybox httpd -fp 8080 &
+                  nohup busybox httpd -fp var.server_port &
                   EOF
   
     tags = { 
@@ -18,8 +18,8 @@ resource "aws_instance" "ServerA" {
 resource "aws_security_group" "GrupodeSeguranca" {
   name = "Grupo-de-seguranca-ex"
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = var.server_port
+    to_port     = var.server_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
