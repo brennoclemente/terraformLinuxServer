@@ -6,8 +6,8 @@ resource "aws_instance" "ServerA" {
 
       user_data = <<-EOF
                   #!/bin/bash
-                  echo var.mensagem > index.html
-                  nohup busybox httpd -fp var.server_port &
+                  echo "${var.mensagem}" > index.html
+                  nohup busybox httpd -fp "${var.server_port}" &
                   EOF
   
     tags = { 
