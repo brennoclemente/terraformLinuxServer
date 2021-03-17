@@ -14,7 +14,7 @@ variable "L_Server" {
 variable "tipo_servidor" {
 	description = "Escolher o tipo de servidor a subir: Linux ou Windows"
 	type = list(string)
-	default = [var.W_Server, var.L_Server]
+	default = ["var.W_Server", "var.L_Server"]
 }
 
 variable "mensagem" {
