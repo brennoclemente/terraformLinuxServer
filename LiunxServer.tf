@@ -26,6 +26,6 @@ resource "aws_security_group" "GrupodeSeguranca" {
 }
 
 output "public_ip" {
-  value       = aws_instance.example.public_ip
+  value       = aws_instance.ServerA.public_ip
   description = "O IP publico para acesso a este servidor e:"
 }
