@@ -1,17 +1,17 @@
 resource "aws_instance" "ServerA" {
-  ami           = "ami-0c55b159cbfafe1f0"
+  ami           = var.tipo_servidor
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.GrupodeSeguranca.id]
   
 
       user_data = <<-EOF
                   #!/bin/bash
-                  echo "Hello, World" > index.html
+                  echo var.mensagem > index.html
                   nohup busybox httpd -fp var.server_port &
                   EOF
   
     tags = { 
-    Name = "2ndTestedeCriacao" 
+    Name = "3rdTestedeCriacao" 
   }
 }
 
